@@ -133,22 +133,23 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Items
-        <small>List of all your insurced items.</small>
+        Record The samples!
       </h1>
     </section>
 
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-md-12" style="margin-bottom: 15px;">
-          <div id="map" style="height: 300px;"></div>
+        <div class="col-md-12" style="margin: 15px 15px 15px 15px;">
+          <a class="btn btn-info btn-block" onclick="window.location.href='/video.html'">
+            <i class="fa fa-video-camera"></i> Record Video!
+          </a>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12" style="margin: 15px 15px 15px 15px;">
-          <a class="btn btn-success btn-block" onclick="window.location.href='/record.html'">
-            <i class="fa fa-video-camera"></i> GO!
+          <a class="btn btn-danger btn-block" onclick="window.location.href='/video.html'">
+            <i class="fa fa-rocket"></i> 3D scaner!
           </a>
         </div>
       </div>
@@ -349,95 +350,6 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
-<script type="text/babel">
-class Item extends React.Component {
-    render() {
-        return (
-          <li className= "treeview" >
-            <a href="#">
-              <i className='fa fa-dashboard'></i>
-              <span>{this.props.name}</span>
-            </a>
-          </li>
-        );
-    }
-}
-ReactDOM.render(
-      <div>
-        <li className="header">MAIN NAVIGATION</li>
-        <Item
-          active={'active'}
-          url={'#'}
-          icon={'fa fa-dashboard'}
-          name={'Index'}
-        >
-        </Item>
-        <Item
-          url={'#'}
-          icon={'fa fa-dashboard'}
-          name={'chat'}
-        >
-        </Item>
-        <Item
-          url={'#'}
-          icon={'fa fa-dashboard'}
-          name={'test'}
-        >
-        </Item>
-      </div>
-      ,
-      document.getElementById('navigation')
-    );
-</script>
-<script>
-      // Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
-      var map, infoWindow;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 6
-        });
-        infoWindow = new google.maps.InfoWindow;
-
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
-
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFERgL7RkbuGWkAyPI5_GM12EVnPGHH2M&callback=initMap"
-        async defer></script>
-</script>
 
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
