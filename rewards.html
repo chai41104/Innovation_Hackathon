@@ -52,7 +52,6 @@
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- User Account: style can be found in dropdown.less -->
@@ -111,13 +110,13 @@
     <section class="sidebar">
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree" id="">
-        <li class="active treeview">
-          <a href="#">
+        <li class="treeview">
+          <a href="/index.html" onclick="window.location.href='/index.html'">
             <i class="fa fa-tachometer"></i>
             <span>Index</span>
           </a>
         </li>
-        <li class="treeview">
+        <li class="active treeview">
           <a href="/rewards.html" onclick="window.location.href='/rewards.html'">
             <i class="fa fa-money"></i>
             <span>Reward</span>
@@ -127,30 +126,29 @@
     </section>
     <!-- /.sidebar -->
   </aside>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Record The samples!
+        Your Current Balance!
       </h1>
     </section>
 
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-md-12" style="margin: 15px 15px 15px 15px;">
-          <a class="btn btn-info btn-block" onclick="window.location.href='/video.html'">
-            <i class="fa fa-video-camera"></i> Record Video!
-          </a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12" style="margin: 15px 15px 15px 15px;">
-          <a class="btn btn-danger btn-block" onclick="window.location.href='/video.html'">
-            <i class="fa fa-rocket"></i> 3D scaner!
-          </a>
+        <div class="col-md-12">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h5>Rewards</h5>
+              <h3>£1,500</h3>
+            </div>
+            <div class="icon">
+              <i class="fa fa-credit-card"></i>
+            </div>
+            <a href="#" class="small-box-footer">More details<i class="fa fa-arrow-circle-right"></i></a>
+          </div>
         </div>
       </div>
     </section>
@@ -187,6 +185,7 @@
 
               <div class="menu-info">
                 <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+
                 <p>New phone +1(800)555-1234</p>
               </div>
             </a>
@@ -234,7 +233,7 @@
             <a href="javascript:void(0)">
               <h4 class="control-sidebar-subheading">
                 Update Resume
-                <span class="label label-success pull-right">95%</span>
+                <span class="label label-danger pull-right">95%</span>
               </h4>
 
               <div class="progress progress-xxs">
@@ -271,9 +270,7 @@
 
       </div>
       <!-- /.tab-pane -->
-      <!-- Stats tab content -->
-      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-      <!-- /.tab-pane -->
+
       <!-- Settings tab content -->
       <div class="tab-pane" id="control-sidebar-settings-tab">
         <form method="post">
@@ -296,6 +293,7 @@
               Allow mail redirect
               <input type="checkbox" class="pull-right" checked>
             </label>
+
             <p>
               Other sets of options are available
             </p>
@@ -349,16 +347,8 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
-
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/raphael/raphael.min.js"></script>
@@ -382,6 +372,7 @@
 <script src="bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
-
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
 </body>
 </html>

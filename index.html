@@ -113,14 +113,14 @@
       <ul class="sidebar-menu" data-widget="tree" id="">
         <li class="active treeview">
           <a href="#">
-            <i class="fa fa-pie-chart"></i>
+            <i class="fa fa-tachometer"></i>
             <span>Index</span>
           </a>
         </li>
         <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Chat</span>
+          <a href="/rewards.html" onclick="window.location.href='/rewards.html'">
+            <i class="fa fa-money"></i>
+            <span>Reward</span>
           </a>
         </li>
       </ul>
@@ -133,8 +133,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Items
-        <small>List of all your insurced items.</small>
+        Treasure Hunt!
       </h1>
     </section>
 
@@ -349,50 +348,6 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
-<script type="text/babel">
-class Item extends React.Component {
-    render() {
-        return (
-          <li className= "treeview" >
-            <a href="#">
-              <i className='fa fa-dashboard'></i>
-              <span>{this.props.name}</span>
-            </a>
-          </li>
-        );
-    }
-}
-ReactDOM.render(
-      <div>
-        <li className="header">MAIN NAVIGATION</li>
-        <Item
-          active={'active'}
-          url={'#'}
-          icon={'fa fa-dashboard'}
-          name={'Index'}
-        >
-        </Item>
-        <Item
-          url={'#'}
-          icon={'fa fa-dashboard'}
-          name={'chat'}
-        >
-        </Item>
-        <Item
-          url={'#'}
-          icon={'fa fa-dashboard'}
-          name={'test'}
-        >
-        </Item>
-      </div>
-      ,
-      document.getElementById('navigation')
-    );
-</script>
 <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
@@ -441,12 +396,6 @@ ReactDOM.render(
 
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/raphael/raphael.min.js"></script>
@@ -470,6 +419,7 @@ ReactDOM.render(
 <script src="bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
-
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
 </body>
 </html>
