@@ -370,7 +370,8 @@
       var map, infoWindow;
       var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
       var labelIndex = 0;
-      const locationInZone = {lat: -11.901593, lng: 25.0};
+      const locationInZone = {lat: -11.931593, lng: 24.97};
+      const locationInZone2 = {lat: -11.92, lng: 24.98};
       const locationOutZone = {lat: -11.95, lng: 24.9};
       const image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
       let markers = [];
@@ -520,17 +521,35 @@
         setMapOnAll(map);
       }
 
-      let isInZone = false;
+      // let isInZone = false;
+
+      // function moveInAndOut() {
+      //   if(!isInZone) {
+      //     moveToInZone(locationInZone);
+      //   } else {
+      //     moveToOutZone(locationOutZone);
+      //   }
+      //   isInZone = !isInZone;
+      // }
+
+      let count = 0;
 
       function moveInAndOut() {
-        if(!isInZone) {
-          moveToInZone(locationInZone);
-        } else {
+        if(count == 0) {
+          count++;
           moveToOutZone(locationOutZone);
         }
-        isInZone = !isInZone;
+        else if(count == 1) {
+          count++;
+          moveToInZone(locationInZone);
+        }
+        else if(count == 2) {
+          count = 0;
+          moveToInZone(locationInZone2);
+        }
       }
-      setInterval(function(){ moveInAndOut(); }, 1000);
+
+      setInterval(function(){ moveInAndOut(); }, 5000);
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFERgL7RkbuGWkAyPI5_GM12EVnPGHH2M&callback=initMap"
         async defer></script>
