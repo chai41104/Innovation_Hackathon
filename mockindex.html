@@ -139,15 +139,17 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
+      <div class="row" style="height: 100px;">
         <div class="column">
-          <div class="col-xs-10">
+          <div class="col-xs-8">
             <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 40%; height: 15px;"></div>
+              <div class="progress-bar progress-bar-success progress-bar-striped progress-bar-animated" style="width: 40%;"></div>
             </div>
           </div>
-          <div class="col-xs-2">
-              <button type="button" class="btn btn-danger"></button>
+          <div class="col-xs-4" id="Alert">
+              <div class="alert alert-danger">
+                <h4><i class="icon fa fa-warning"></i>Alert</h4>
+              </div>
           </div>
         </div>
       </div>
@@ -157,7 +159,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12" style="margin: 15px 15px 15px 15px;">
+        <div class="col-md-12 hidden" style="margin: 15px 15px 15px 15px;" id="GoButton">
           <a class="btn btn-success btn-block" onclick="window.location.href='/record.html'">
             <i class="fa fa-video-camera"></i> GO!
           </a>
@@ -368,11 +370,13 @@
       var map, infoWindow;
       var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
       var labelIndex = 0;
-      var currentLocation = {lat: -11.901593, lng: 25.0};
-      var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+      const locationInZone = {lat: -11.901593, lng: 25.0};
+      const locationOutZone = {lat: -11.95, lng: 24.9};
+      const image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+      let markers = [];
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: currentLocation,
+          center: locationInZone,
           zoom: 10
         });
 
@@ -383,13 +387,12 @@
         const pointC = { lat: -11.844545, lng: 25.028971};
         const pointD = { lat: -11.901523, lng: 25.013502};
 
-        addMarker(pointA, map, image, labels[labelIndex++ % labels.length]);
-        addMarker(pointB, map, image, labels[labelIndex++ % labels.length]);
-        addMarker(pointC, map, image, labels[labelIndex++ % labels.length]);
-        addMarker(pointD, map, image, labels[labelIndex++ % labels.length]);
+        markers[4] = addMarker(pointA, map, image, labels[labelIndex++ % labels.length]);
+        markers[1] = addMarker(pointB, map, image, labels[labelIndex++ % labels.length]);
+        markers[2] = addMarker(pointC, map, image, labels[labelIndex++ % labels.length]);
+        markers[3] = addMarker(pointD, map, image, labels[labelIndex++ % labels.length]);
 
-
-        addMarker(currentLocation, map);
+        markers[0] = addMarker(locationOutZone, map);
 
         var areaCoords = [
             {lat: -11.8, lng: 24.95},
@@ -467,11 +470,10 @@
         
       }
       // Adds a marker to the map.
-      // var bangalore = { lat: 12.97, lng: 77.59 };
-      function addMarker(location, map, image = null, label = 'You') {
+      function addMarker(location, map, image = null, label = 'Y') {
         // Add the marker at the clicked location, and add the next-available label
         // from the array of alphabetical characters.
-        var marker = new google.maps.Marker({
+        return new google.maps.Marker({
           position: location,
           label: label,
           map: map,
@@ -486,6 +488,49 @@
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
+
+      function moveToOutZone(location) {
+        document.getElementById('Alert').classList.remove('hidden');
+        document.getElementById('GoButton').classList.add('hidden');
+        showMarkers(location);
+      }
+
+      function moveToInZone(location) {
+        document.getElementById('Alert').classList.add('hidden');
+        document.getElementById('GoButton').classList.remove('hidden');
+        showMarkers(location);
+      }
+
+      // Sets the map on all markers in the array.
+      function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+      }
+
+      // Removes the markers from the map, but keeps them in the array.
+      function clearMarkers() {
+        setMapOnAll(null);
+      }
+
+      // Shows any markers currently in the array.
+      function showMarkers(location) {
+        clearMarkers();
+        markers[0] = addMarker(location, map);
+        setMapOnAll(map);
+      }
+
+      let isInZone = false;
+
+      function moveInAndOut() {
+        if(!isInZone) {
+          moveToInZone(locationInZone);
+        } else {
+          moveToOutZone(locationOutZone);
+        }
+        isInZone = !isInZone;
+      }
+      setInterval(function(){ moveInAndOut(); }, 1000);
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFERgL7RkbuGWkAyPI5_GM12EVnPGHH2M&callback=initMap"
         async defer></script>
