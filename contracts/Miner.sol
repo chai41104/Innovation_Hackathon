@@ -8,12 +8,13 @@ contract Miner is Mine {
   bool public verified;
   string public verifID;
 
-  mapping (string => uint256) public Mines;
-  // trust score -- compute of different events
+  mapping (string => uint256) internal Mines;
+  // trust score -- compute as results of different events
+  mapping (string => uint256) internal trustScore;
 
-  function Miner (string ide, string nameT, string miner){
-      id = ide;
-      name = nameT;
+  function Miner (string genId, string guysName, bool isVerif, string proof){
+      id = genId;
+      name = guysName;
       verified = isVerif;
       verifID = proof;
   }
