@@ -143,17 +143,12 @@
         <div class="col-md-12" style="margin: 15px 15px 15px 15px;">
             <div class="col-md-12">
               <a class="btn btn-info btn-block" id="btn-start-recording">
-                <i class="fa fa-video-camera"></i> Start to Record!
-              </a>
-            </div>
-            <div class="col-md-12">
-              <a class="btn btn-danger btn-block hidden" id="btn-stop-recording">
-                <i class="fa fa-stop"></i> Finish Record!
+                <i class="fa fa-camera"></i> take a picture!
               </a>
             </div>
             <div class="col-md-12">
               <a class="btn btn-success btn-block hidden" id="btn-send-recording">
-                <i class="fa fa-paper-plane"></i> Save Record!
+                <i class="fa fa-paper-plane"></i> Save picture!
               </a>
             </div>
             <!-- <button id="btn-start-recording" class="">Start Recording</button>
@@ -403,20 +398,16 @@ document.getElementById('btn-start-recording').onclick = function() {
         // release camera on stopRecording
         recorder.camera = camera;
 
-        document.getElementById('btn-stop-recording').classList.remove('hidden');
+        document.getElementById('btn-send-recording').classList.remove('hidden');
         document.getElementById('btn-start-recording').classList.add('hidden');
+        setTimeout(() => recorder.stopRecording(stopRecordingCallback), 300);
     });
 };
 
-document.getElementById('btn-stop-recording').onclick = function() {
-    recorder.stopRecording(stopRecordingCallback);
-    document.getElementById('btn-send-recording').classList.remove('hidden');
-    document.getElementById('btn-stop-recording').classList.add('hidden');
-};
 document.getElementById('btn-send-recording').onclick = function() {
     document.getElementById('btn-start-recording').classList.remove('hidden');
     document.getElementById('btn-send-recording').classList.add('hidden');
-    alert('The video is saved.');
+    alert('The picture is saved.');
     window.location.href='/record.html';
 };
 </script>
