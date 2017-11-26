@@ -146,7 +146,7 @@
               <div class="progress-bar progress-bar-success progress-bar-striped progress-bar-animated" style="width: 40%;"></div>
             </div>
           </div>
-          <div class="col-xs-4" id="Alert">
+          <div class="col-xs-4 hidden" id="Alert">
               <div class="alert alert-danger">
                 <h4><i class="icon fa fa-warning"></i>Alert</h4>
               </div>
@@ -159,7 +159,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12 hidden" style="margin: 15px 15px 15px 15px;" id="GoButton">
+        <div class="col-md-12" style="margin: 15px 15px 15px 15px;" id="GoButton">
           <a class="btn btn-success btn-block" onclick="window.location.href='/record.html'">
             <i class="fa fa-video-camera"></i> GO!
           </a>
@@ -393,7 +393,7 @@
         markers[2] = addMarker(pointC, map, image, labels[labelIndex++ % labels.length]);
         markers[3] = addMarker(pointD, map, image, labels[labelIndex++ % labels.length]);
 
-        markers[0] = addMarker(locationOutZone, map);
+        markers[0] = addMarker(locationInZone, map);
 
         var areaCoords = [
             {lat: -11.8, lng: 24.95},
@@ -521,17 +521,6 @@
         setMapOnAll(map);
       }
 
-      // let isInZone = false;
-
-      // function moveInAndOut() {
-      //   if(!isInZone) {
-      //     moveToInZone(locationInZone);
-      //   } else {
-      //     moveToOutZone(locationOutZone);
-      //   }
-      //   isInZone = !isInZone;
-      // }
-
       let count = 0;
 
       function moveInAndOut() {
@@ -543,8 +532,8 @@
           count++;
           moveToInZone(locationInZone);
         }
-        else if(count == 2) {
-          count = 0;
+        else if(count == 2){
+          count++;
           moveToInZone(locationInZone2);
         }
       }
