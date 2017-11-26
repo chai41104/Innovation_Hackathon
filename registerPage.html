@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>G-infinite</title>
+  <title>Underground!</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -42,9 +42,9 @@
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini">GI</span>
+      <span class="logo-mini">UG</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">G-infinite</span>
+      <span class="logo-lg">Underground</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -55,48 +55,6 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
-                </p>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
           <!-- Control Sidebar Toggle Button -->
           <li>
             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
@@ -114,13 +72,7 @@
         <li class="active treeview">
           <a href="#">
             <i class="fa fa-tachometer"></i>
-            <span>Index</span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="/rewards.html" onclick="window.location.href='/rewards.html'">
-            <i class="fa fa-money"></i>
-            <span>Reward</span>
+            <span>register</span>
           </a>
         </li>
       </ul>
@@ -133,51 +85,78 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Record The samples!
+        Please fill the form
       </h1>
     </section>
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-md-12" style="margin: 15px 15px 15px 15px;">
-          <a class="btn btn-success btn-block" onclick="window.location.href='/camera.html'">
-            <i class="fa fa-camera"></i> Take Pictures!
-          </a>
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Become VIP Members</h3>
         </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form role="form">
+          <div class="box-body">
+            <!-- radio -->
+            <div class="form-group">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                  Passport
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                  Valid ID
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="optionsRadios" id="optionsRadios3" value="option2">
+                  Driver Licence
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                  <span class="input-group-addon">@</span>
+                  <input type="text" class="form-control" placeholder="Your name">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                <input type="email" class="form-control" placeholder="Your Email">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                <input type="email" class="form-control" placeholder="Your phonenumber">
+              </div>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"><label>I agree with <a href="#">licence</a> and I understand.</label>
+              </label>
+            </div>
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer">
+            <a onclick="window.location.href='/registerPage2.html';" class="btn btn-primary">Process</a>
+          </div>
+        </form>
       </div>
-      <div class="row">
-        <div class="col-md-12" style="margin: 15px 15px 15px 15px;">
-          <a class="btn btn-info btn-block" onclick="window.location.href='/video.html'">
-            <i class="fa fa-video-camera"></i> Record Video!
-          </a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12" style="margin: 15px 15px 15px 15px;">
-          <a class="btn btn-danger btn-block" onclick="window.location.href='/video.html'">
-            <i class="fa fa-rocket"></i> 3D Scan!
-          </a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12" style="margin: 15px 15px 15px 15px;">
-          <a class="btn btn-warning btn-block" onclick="alert('Data is sent');">
-            <i class="fa fa-rocket"></i> Send data to cloud!
-          </a>
-        </div>
-      </div>
+      <!-- /.box -->
     </section>
     <!-- /.content -->
   </div>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
     <!-- Tab panes -->
     <div class="tab-content">
       <!-- Home tab content -->
