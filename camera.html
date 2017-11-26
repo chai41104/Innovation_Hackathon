@@ -133,7 +133,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Record Video!
+        Take Picture!
       </h1>
     </section>
 
@@ -142,7 +142,7 @@
       <div class="row">
         <div class="col-md-12" style="margin: 15px 15px 15px 15px;">
             <div class="col-md-12">
-              <a class="btn btn-info btn-block" id="btn-start-recording">
+              <a class="btn btn-info btn-block" onclick="runStory();" id="btn-start-recording">
                 <i class="fa fa-camera"></i> take a picture!
               </a>
             </div>
@@ -157,8 +157,18 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12" style="margin: 15px 15px 15px 15px;">
-          <video controls autoplay style="height: 300px;"></video>
+        <div class="col-md-12 hidden" style="margin: 15px 15px 15px 15px;" id="pic3">
+          <img src="/images/gold 1.jpg" style="max-height: 200px;" class="img-rounded">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 hidden" style="margin: 15px 15px 15px 15px;" id="pic2">
+          <img src="/images/gold 2.jpg" style="max-height: 200px;" class="img-rounded">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 hidden" style="margin: 15px 15px 15px 15px;" id="pic1">
+          <img src="/images/gold 3.jpg" style="max-height: 200px;" class="img-rounded">
         </div>
       </div>
     </section>
@@ -363,6 +373,24 @@
 <script>
 var video = document.querySelector('video');
 
+let count = 0;
+
+function runStory() {
+  console.log(count);
+  if(count == 0) {
+    document.getElementById('pic1').classList.remove('hidden');
+  }
+  else if(count == 1) {
+    document.getElementById('pic2').classList.remove('hidden');
+  }
+  else if(count == 2) {
+    document.getElementById('pic3').classList.remove('hidden');
+    document.getElementById('btn-send-recording').classList.remove('hidden');
+    document.getElementById('btn-start-recording').classList.add('hidden');
+  }
+  count++;
+}
+
 function captureCamera(callback) {
     navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(camera) {
         callback(camera);
@@ -383,31 +411,10 @@ function stopRecordingCallback() {
 
 var recorder; // globally accessible
 
-document.getElementById('btn-start-recording').onclick = function() {
-    this.disabled = true;
-    captureCamera(function(camera) {
-        setSrcObject(camera, video);
-        video.play();
-
-        recorder = RecordRTC(camera, {
-            type: 'video'
-        });
-
-        recorder.startRecording();
-
-        // release camera on stopRecording
-        recorder.camera = camera;
-
-        document.getElementById('btn-send-recording').classList.remove('hidden');
-        document.getElementById('btn-start-recording').classList.add('hidden');
-        setTimeout(() => recorder.stopRecording(stopRecordingCallback), 300);
-    });
-};
-
 document.getElementById('btn-send-recording').onclick = function() {
     document.getElementById('btn-start-recording').classList.remove('hidden');
     document.getElementById('btn-send-recording').classList.add('hidden');
-    alert('The picture is saved.');
+    alert('All pictures are saved.');
     window.location.href='/record.html';
 };
 </script>
