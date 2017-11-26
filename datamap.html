@@ -372,6 +372,7 @@
           for(var y = 1; y <= 5; ++y) {
             let color = '#FF0000';
             if(x + y < 4) color = '#FFFF00';
+            else if(x == 3 && y == 3) color = '#7FFF00';
             var aa = drowMap([
               {lat: baselat + ((x - 1) * 0.15), lng: baselng + ((y - 1) * 0.15)},
               {lat: baselat + ((x - 1) * 0.15), lng: baselng + ((y) * 0.15)},
